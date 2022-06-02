@@ -30,9 +30,9 @@ package platform.codingnomads.co.javaLogicPuzzles;
                 return n;
             }
 
-            int last = 1;
-            int nextLast = 0;
-            int num = 0;
+            double last = 1;
+            double nextLast = 0;
+            double num = 0;
 
             for(int count = 1; count != n; count++){
                 num = last + nextLast;
