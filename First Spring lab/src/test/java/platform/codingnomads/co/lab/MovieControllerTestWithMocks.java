@@ -36,9 +36,6 @@ public class MovieControllerTestWithMocks {
     @Autowired
     private MockMvc mockMvc;
 
-    //@MockBean
-    //private MovieRepository movieRepo;
-
     @MockBean
     private MovieService movieService;
 
@@ -92,24 +89,39 @@ public class MovieControllerTestWithMocks {
         mockMvc.perform(get("/all"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json"))
-                .andExpect(content().string(TestUtil.convertObjectToJsonString(movie)));
+                .andExpect(content().string(TestUtil.convertObjectToJsonString(Arrays.asList(movie))));
     }
 
     @Test
     @Order(3)
     public void testGetAllMoviesSuccessTestUtilMockService() throws Exception {
+        Movie movie1 = Movie.builder()
+                .id(1l)
+                .name("The Shawshank Redemption")
+                .rating(9.3)
+                .build();
+        Movie movie2 = Movie.builder()
+                .id(2l)
+                .name("The Pursuit of Happyness")
+                .rating(8d)
+                .build();
+        ArrayList<Movie> testResult = new ArrayList<>(Arrays.asList(movie1, movie2));
+
+        when(
+                movieService.getAllMovies()
+        ).thenReturn(testResult);
         byte[] responseContent = mockMvc.perform(get("/all"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andReturn().getResponse().getContentAsByteArray();
 
-        Movie[] movies = TestUtil.convertJsonBytesToObject(responseContent, Movie[].class);
+        ArrayList<Movie> movies = TestUtil.convertJsonBytesToObject(responseContent, ArrayList.class);
         assertThat(movies).hasSize(2);
-        assertThat(movies[0].getId()).isEqualTo(1);
-        assertThat(movies[0].getName()).isEqualTo("The Shawshank Redemption");
-        assertThat(movies[1].getId()).isEqualTo(2);
-        assertThat(movies[1].getName()).isEqualTo("The Pursuit of Happyness");
+        assertThat(movies.get(0).getId()).isEqualTo(1);
+        assertThat(movies.get(0).getName()).isEqualTo("The Shawshank Redemption");
+        assertThat(movies.get(1).getId()).isEqualTo(2);
+        assertThat(movies.get(1).getName()).isEqualTo("The Pursuit of Happyness");
     }
 
     @Test
