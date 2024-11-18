@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<th:block th:fragment="header">
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" th:href="@{/}">
+                    <img th:src="@{/img/logo.png}" alt="codingnomads logo"/>
+                </a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a th:href="@{/}">Home</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="button1" class="container">
+                        <a th:href="@{/permissions}">Permissions</a>
+            </div>
+            <div id="button2" class="container">
+                        <a th:href="@{/manager-users}">Manage Users</a>
+            </div>
+
+            <div id="button3" class="container">
+                <a th:href="@{/cart}">Cart</a>
+            </div>
+        </div>
+    </nav>
+
+
+</th:block>
+</body>
+</html>

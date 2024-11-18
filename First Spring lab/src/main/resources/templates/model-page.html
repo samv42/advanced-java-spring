@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Model Page</title>
+</head>
+<body>
+<h1>Welcome to the Model Demo</h1>
+<h2>
+    <span>Name:  <th:block th:text="${name}">[name]</th:block></span> <br>
+    <span>Language: <th:block th:text="${language}">[language]</th:block></span> <br>
+    <span>Framework: <th:block th:text="${framework}">[framework]</th:block></span> <br>
+    <span>User: <th:block th:text="${user}">[user]</th:block></span> <br>
+    <span>Training: <th:block th:text="${training}">[training]</th:block></span> <br>
+    <span>Location: <th:block th:text="${location}">[location]</th:block></span> <br>
+    <span>Eyesight: <th:block th:text="${eyesight}">[eyesight]</th:block></span> <br>
+    <span><a th:href="@{/model-and-view-page}">Click here for the ModelAndView Page</a></span>
+</h2>
+</body>
+</html>

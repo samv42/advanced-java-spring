@@ -27,7 +27,8 @@
                 <td th:text="${userMeta.id}">Meta ID</td>
                 <td th:text="${userMeta.name}">Name</td>
                 <td th:text="${userMeta.email}">Name</td>
-                <td th:href="@{'/edit-meta/' + ${userMeta.id}}">Edit</td>
+                <td><a th:href="@{'/edit-user/' + ${userMeta.id}}">Edit</a>
+                    </td>
             </tr>
             </tbody>
         </table>
