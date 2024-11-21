@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="movie1" class="platform.codingnomads.co.corespring.lab.Movie">
+        <property name="name" value="E.T."/>
+        <property name="director" value="Steven Spielberg"/>
+    </bean>
+
+    <bean id="movie2" class="platform.codingnomads.co.corespring.lab.Movie">
+        <property name="name" value="Star Wars"/>
+        <property name="director" value="George Lucas"/>
+    </bean>
+</beans>
